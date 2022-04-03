@@ -1,0 +1,10 @@
+Find the First Occurrence of a given number in a sorted array
+I : 1 10 10 10 20 20 40
+    20
+O : 4
+
+
+Solution : 
+Find any Occurrence using binary search.
+Then Check if arr[mid] == to arr[mid-1] 
+If yes then just decrease high to mid-1 and then call the binary search again.
