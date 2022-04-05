@@ -1,0 +1,11 @@
+Find the number of Occurrences of a given number in a sorted array
+I : 10 20 20 20 30 40
+    20
+O : 3
+
+
+Solution : 
+
+Find first Occurrence of the number using previous explained method  =  A
+Find last Occurrence of the number using previous explained method   =  B
+Find B-A

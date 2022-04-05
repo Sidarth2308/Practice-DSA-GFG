@@ -1,0 +1,17 @@
+Find the square root of a number. If the square root is not perfect, then find the floor of it.
+I : 4
+O : 2
+
+I : 14
+O : 3
+
+I : 25
+O : 5
+
+Solution : 
+Use binary search to solve this.
+Eg. if your number is X then you will have to try to find a number that is between 1 and X.
+For this : 
+We can use binary search to keep searching for values which are less then or greater than X/2 and then increase or decrease accordingly.
+.       .       .
+1       X/2     X
