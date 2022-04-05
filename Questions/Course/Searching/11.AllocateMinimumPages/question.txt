@@ -1,15 +1,23 @@
-
+There are n books with arr[i] pages given and k students. All students have to read at-least 1 book. Minimize and find the max number of pages that any student can read.
 
 I : 10 20 30 40
     2
 O : 60
+    (10 + 20 + 30) 
 
 I : 10 20 30
     1
 O : 60
+    (10 +20 +30)
 
 I : 10 5 30 1 2 5 10 10
     3
 O : 30
+(the max that a student needs to read is 30)
 
 Solution : 
+In this question we first find the max of the array and the sum of all the elements in the array. we know that our answer will be in the range of max and sum.
+so we find the mid(max + sum /2) and check if this is a feasible solution. Meaning that this can satisfy our condition. 
+If it can, we add it as a potential answer. This means that any number above our number is not a good answer and we can update our high to mid-1.
+If it cannot, we know that any number less than this cannot be our answer as well. Hence, we update the low to mid +1.
+This process continues until we converge on 1 single value.

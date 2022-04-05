@@ -4,40 +4,47 @@
 #include <filesystem>
 
 using namespace std;
-bool isPair(vector<int> arr, int low, int high, int x)
+bool isFeasible(vector<int> arr, int n, int k, int ans)
 {
-	int left = low, right = high;
-	int sum;
-	// cout << left << " " << right << endl;
-	while (left < right)
+	int req = 1, sum = 0;
+	for (int i = 0; i < n; i++)
 	{
-		sum = (arr[left] * arr[left]) + (arr[right] * arr[right]);
-		if (sum == x)
+		if (sum + arr[i] > ans)
 		{
-			return true;
-		}
-		else if (sum < x)
-		{
-			left++;
+			req++;
+			sum = arr[i];
 		}
 		else
 		{
-			right--;
+			sum += arr[i];
 		}
 	}
-	return false;
+	return (req <= k);
 }
-bool hasPythagoreanTriplets(vector<int> arr, int n)
+int AllocatePages(vector<int> arr, int n, int k)
 {
-	sort(arr.begin(), arr.end());
-	for (int i = n - 1; i > 0; i--)
+	int sum = 0, mx = 0;
+	for (int i = 0; i < n; i++)
 	{
-		if (isPair(arr, 0, i - 1, arr[i] * arr[i]))
-			return true;
+		sum += arr[i];
+		mx = max(mx, arr[i]);
 	}
-	return false;
+	int low = mx, high = sum, res = 0;
+	while (low <= high)
+	{
+		int mid = (low + high) / 2;
+		if (isFeasible(arr, n, k, mid))
+		{
+			res = mid;
+			high = mid - 1;
+		}
+		else
+		{
+			low = mid + 1;
+		}
+	}
+	return res;
 }
-
 int main()
 {
 	string input;
@@ -63,7 +70,8 @@ int main()
 		{
 			cin >> arr[i];
 		}
-		cout << hasPythagoreanTriplets(arr, n) << endl;
+		cin >> x;
+		cout << AllocatePages(arr, n, x) << endl;
 	}
 
 	inputFile.close();
