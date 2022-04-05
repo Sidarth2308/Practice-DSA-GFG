@@ -15,3 +15,9 @@ For this :
 We can use binary search to keep searching for values which are less then or greater than X/2 and then increase or decrease accordingly.
 .       .       .
 1       X/2     X
+
+
+Whenever the square of mid is found to be less than than X then we will store this mid as a potential value and then eliminate left part like we do in binary search.
+Why do we store this mid?
+Because we need to return some value. So as we narrow down on the potential exact value, we also need to keep track of last found(best) value which satisfied (mid * mid < X).
+Because since we need only floor, between 9-15 answer is only 3, between 16-24, answer is only 4, between 25-35, answer is only 5. Hence we keep track of last such value.

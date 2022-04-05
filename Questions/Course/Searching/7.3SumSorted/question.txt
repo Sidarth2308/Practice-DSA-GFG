@@ -1,0 +1,8 @@
+Given a sorted array, and a number x, we need to find if there is a triplet in the array with sum equals to x.
+I : 2 3 4 8 9 20 40
+    32
+O : yes
+    (4, 8, 20)
+
+Solution : 
+You follow 2 pointer approach

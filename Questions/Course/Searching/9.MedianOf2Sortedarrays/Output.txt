@@ -1,0 +1,7 @@
+i1 : 2 i2 : 5 min1 :30 max 1 : 20 min2 : 55 max2 : 35
+i1 : 4 i2 : 3 min1 :50 max 1 : 40 min2 : 30 max2 : 25
+i1 : 3 i2 : 4 min1 :40 max 1 : 30 min2 : 35 max2 : 30
+32
+i1 : 2 i2 : 3 min1 :50 max 1 : 40 min2 : 8 max2 : 7
+i1 : 0 i2 : 5 min1 :30 max 1 : -2147483648 min2 : 2147483647 max2 : 9
+9

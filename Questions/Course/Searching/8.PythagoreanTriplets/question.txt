@@ -1,0 +1,7 @@
+Given a sorted array, we need to find if there is a Pythagorean triplet in the array(A,B,C) such that A^2 + B^2 = C^2
+I : 3 1 4 6 5
+O : yes
+    (3, 4, 5)
+
+Solution : 
+You follow 2 pointer approach

@@ -1,0 +1,10 @@
+Given 2 sorted arrays, we need to find the median of the merged array containing sorted elements of both.
+I : 10 20 30 40 50
+    5 15 25 30 35 55 65 75 85
+O : 32.5
+    (5 10 15 20 25 30 35 40 50 55 65 75 85)
+    ((30 + 35) / 2)
+
+
+Solution : 
+

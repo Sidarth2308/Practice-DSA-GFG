@@ -1,0 +1,14 @@
+Find a given number from a sorted and rotated array.
+Here rotated array means that a sorted array is rotated counterclockwise any number of times.
+I : 10 20 30 40 50 8 9
+    30
+O : 2
+
+I : 100 200 300 10 20
+    40
+O : -1
+
+Solution : 
+Let say we take example [10 20 30 40 50 8 9]
+Here we first figure out the middle element. 30.
+30 then we compare 30 with the 0th element and the nth element. If 0th element is lesser than mid then this means that the left side is sorted and hence automatically nth element will not be bigger and right side is not sorted and vice versa. Now we can directly check if the number exists b/w the starting element(0th) and the element less than mid(mid-1). If true then we can simply perform binary search here, otherwise the element exists in the right side and the cycle will continue.

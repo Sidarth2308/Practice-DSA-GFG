@@ -1,0 +1,12 @@
+Given a sorted array, and a number x, we need to find if there is a pair in the array with sum equals to x.
+I : 2 5 8 12 30
+    17
+O : yes
+    (5, 12)
+
+I : 3 8 13 18
+    14
+O : No
+
+Solution : 
+You follow 2 pointer approach. You keep one pointer at 0 and other at n-1. Now check if sum of these is lower or greater than x. If lower, increase lower pointer, if higher, decrease higher pointer. Stop when sum = x is found or lower = higher.
