@@ -4,4 +4,4 @@ O : yes
     (3, 4, 5)
 
 Solution : 
-You follow 2 pointer approach
+You follow 2 pointer approach but a modified version. You simply run 1 single outer loop. and then use the 2 pointer approach for all the elements between the next element and the end of the array (if going for a forward loop). Here you will need to run a reverse loop since the array is sorted and in A^2 + B^2 = C^2, C will be towards the end of the array.

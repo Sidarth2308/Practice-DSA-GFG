@@ -7,4 +7,15 @@ O : 32.5
 
 
 Solution : 
+Assume that a1 will always be smaller than a2(Easily implementable in code).
+You maintain the mid of a1 (as i1). Now according to this you find i2(which is found by the formula in the code).
+i1 signifies the start of the second part of a1 and the smallest number in that part. Also called min1.
+i2 signifies the start of the second part of a2 and the smallest number in that part. Also called min2.
+max1 is the element just before i1(i2 - 1). This will be the end of the first part of a1 and the highest number in a1.
+max2 is the element just before i2 (i2 - 1). This will be the end of the first part of a2 and the highest number in a2.
+
+Now we check if the max2 is less than min1 and max1 is less than min2. If yes then we are the breakpoint and just calculate max of (max1, max2) and min of (min1, min2) and add them and finally divide by 2.
+If max1 > min2 then left half will be binary search hence decrease the end1.
+else increase the begin1. 
+
 

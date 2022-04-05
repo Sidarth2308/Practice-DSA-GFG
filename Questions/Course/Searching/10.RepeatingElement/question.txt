@@ -1,0 +1,54 @@
+Given an array of numbers, all elements appear only once except 1 element(which may appear any number of times). Find that element.
+Rules : 
+Array size : n >= 2
+Only 1 element Repeats
+0 is always present in the array
+All the elements from 0 to max(arr) are present.
+or( 0 <= max(arr) <= n-2)
+
+I : 0 2 1 3 2 2
+O : 2
+
+I : 1 2 3 0 3 4 5
+O : 3
+
+Solution : 
+
+Let us first simplify this problem and instead of having 0 always present, we will do 1. 
+So problem becomes 1 <= max(arr) <= n-2
+
+Now simplified exampled : 1 3 2 4 6 5 7 3
+What we do is we form a chain by doing pointer = arr[pointer]. Initially pointer is at 0.
+So pointer forms a chain like :
+
+1 -> 3 -> 4 -> 6 -> 7 ->(loops back to) 3
+Using this fact, we can simply use the famous linked list problem of finding if a cycle exists and if it does, finding the first node which starts a loop. This will also be our answer.
+How that works is that we have 2 phases in our solution and 2 pointers. In the first phase, the slow pointer runs at slow = arr[slow] and fast runs at fast = arr[arr[fast]];
+Because of this fact, both the pointers will meet at some point in the loop(proven fact).
+In the second phase : the slow pointer is initialized to 0 again and now both pointers run at same speed until they meet(which will be the first loop which starts the node and our answer).
+
+
+int FindRepeat(vector<int> arr, int n)
+{
+    //phase 1 start
+	int slow = arr[0], fast = arr[0];
+	do{
+		slow = arr[slow];
+		fast = arr[arr[fast]];
+
+	}while(slow!=fast);
+    //phase 1 end and phase  2  start
+	slow = arr[0];
+	while(slow!=fast){
+		slow = arr[slow];
+		fast = arr[fast];
+	}
+    //phase 2 end
+	return slow;
+}
+
+This is the solution to our modified problem. Now we will only make modifications here to make sure that our problem can handle 1 more case(of having 0s).
+How?
+Just add 1 to each time when updating. This way we maintain the same type of chain in as we got in our modified question. Finally just subtract 1 and return the answer.
+But why was the problem there in the first place?
+Because if we do arr[0] we will get the same first element on repeat and hence either a self chain or an unnecessary and incorrect loop.
