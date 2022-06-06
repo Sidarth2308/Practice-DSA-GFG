@@ -1,0 +1,39 @@
+1) Divide and conquer
+2) Stable algorithm
+3) Theta(nlogn) time complexity and O(n) aux space
+4) Good for linked lists. Works in O(1) aux space
+5) used in external sorting : parts can be sorted and whole array need not be in RAM.
+6) in general for arrays, quicksort is better
+
+
+void merge(int a[], int b[], int n, int m){
+    int i=0, j=0;
+    while(i<n && j<m){
+            if(a[i]<=b[j]){
+                print(a[i]);
+                i++;
+            }else{
+                print(b[j]);
+                j++;
+            }
+    }
+    while(i<n){
+        print(a[i]); 
+        i++;
+    }
+    while(j<m){
+        print(b[j]);
+        j++;
+    }
+
+}
+
+
+void mergeSort(int arr[], int l, int h){
+    if(h>l){  // atleast 2 elements should be present
+        int m = (h+l)/2;
+        mergeSort(arr,l,m);
+        mergeSort(arr,m+1,h);
+        merge(arr,l,m,h);
+    }
+}

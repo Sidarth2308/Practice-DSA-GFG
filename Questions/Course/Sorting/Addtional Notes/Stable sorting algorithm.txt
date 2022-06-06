@@ -1,0 +1,24 @@
+Stability of sorting algorithm:
+Stability means that if two values are same in our sorting condition check then they should appear in the same order as in the original array.
+eg.
+[
+    ["Anil", 50],
+    ["Ayan", 80],
+    ["Piyush", 50],
+    ["Ramesh", 80],
+]
+If we sort this array in the order of increasing marks then a stable algo 
+will give the result:
+[
+    ["Anil", 50],
+    ["Piyush", 50],
+    ["Ayan", 80],
+    ["Ramesh", 80],
+]
+Stability is important only if multivalued arrays neads to be sorted.
+
+Example of Stable sorts:
+Bubble sort, Insertion sort, Merge sort
+
+Example of Non-Stable sorts:
+Selection sort, Quick sort, Heap sort

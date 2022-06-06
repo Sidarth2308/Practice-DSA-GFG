@@ -1,0 +1,16 @@
+We are given an array and 3 variables : A,B,C. Elements from A-B are sorted and elements from B+1 - C are sorted. Sort the entire array.
+Low <= Mid < High
+I : 10, 15, 20, 11, 30
+    low = 0
+    mid = 2
+    high = 4
+O : [10, 11, 15, 20, 30]
+
+
+Solution : 
+Make 2 arrays of size mid-low+1 as array A and high-mid as array B.
+Store the elements from low <= mid in A and mid+1 <= high in B.
+Use the merge function of merge sort to merge the sorted arrays back into original.
+
+O(n) time complexity
+O(n) space complexity
