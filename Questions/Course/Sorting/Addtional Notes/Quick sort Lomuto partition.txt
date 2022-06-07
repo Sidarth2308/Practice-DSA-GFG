@@ -1,0 +1,32 @@
+Lomuto partition is a better way of partitioning the array according to a given pivot.
+It is more efficient than naive partition but does not guarantee stability.
+Here we traverse the array only once and have constant (Theta(1)) aux space.
+
+Here we assume that the pivot is always the last element.
+int LomutoPartition(arr, l,h){
+    int pivot = arr[h];
+    int i = low-1;
+    for(int j=low, j<= high-1;j++){
+        if(arr[j] < pivot){
+            i++;
+            swap(arr[i],arr[j]);
+        }
+    }
+    swap(arr[i+1], arr[h]);
+    return(i+1);
+}
+We will define 2 parts in the array. low to i will be the part which contains elements which are < the pivot and i+1 to h will be part which contains elements which are >= to the pivot.
+What we do is that we traverse the array in search of elements which are less than our pivot. Every time we find one, we swap with ith position and increase our window size of i.
+At the very end, we will just swap the last element(our pivot) with the i+1th element.
+Eg. [10, 80, 30, 90, 40, 50, 70]
+Pivot = 70
+So first i =-1 and j=0
+when 10 < 70 is found, we increase our window of small elements (i++) and swap with j (which was already 0)
+Then 30 < 70 is encountered and we increase our window again (i=1) and swap with j(=2)
+now again 40 is encountered and we increase the window(i=2) and swap with j(=4)
+and finally again with 50, (i=3) and j=5
+at last we swap with i+1 = 4th index and the pivot.
+so new array : [10, 30, 40, 50, 70, 90, 80]
+
+What if your pivot is not the last element and any other index element? 
+Then swap and make it the last element

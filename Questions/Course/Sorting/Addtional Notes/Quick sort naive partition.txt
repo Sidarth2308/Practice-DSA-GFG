@@ -1,0 +1,45 @@
+What is naive partition?
+Lets say we have elements [3, 8, 6, 12, 10, 7]
+and your pivot is index 5 i.e. 7
+now you need to arrange and put 7 in such a way that all elements to the left of 7 are smaller or equal and all elements to the right of 7 are greater.
+One such permutation can be : [3, 6, 7, 8, 12, 10]
+Even tho, this is not sorted, this is naive partition and the position of 7 is correct. 
+Naive partition is inefficient.
+
+int partition(arr, l,h,pivot){
+    int temp[h-l+1], index =0;
+    for(int i=l;i<=h;i++){
+        if(arr[i]<arr[pivot]){
+            temp[index]= arr[i];
+            index++;
+        }
+    }
+    for(int i=l;i<=h;i++){
+        if(arr[i]==arr[pivot]){
+            temp[index]= arr[i];
+            index++;
+        }
+    }
+    for(int i=l;i<=h;i++){
+        if(arr[i]>arr[pivot]){
+            temp[index]= arr[i];
+            index++;
+        }
+    }
+    for(int i=l;i<=h;i++){
+        arr[i] = temp[i-l];
+    }
+    return res;
+}
+
+There are multiple traversals of the array here.
+First we create a temp array.
+Then we process and copy for all the elements which are smaller than our pivot element into the temp.
+Then we process and copy for all the elements which are equal to our pivot element into the temp.
+And then we process and copy for all the elements which are greater than our pivot element into the temp.
+Finally we will copy all the elements of our temp elements back into the original array.
+
+Why do we need multiple and separate loops which are very similar?
+This is to guarantee stability.
+So time : theta(n)
+aux : theta(n)

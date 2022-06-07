@@ -1,0 +1,32 @@
+Quick sort 
+1) Divide and conquer
+2) Worst case : O(n^2)
+3) despite worst case, it is considered faster because:
+    a) In-place i.e. no need for aux array but still function call stack so arguable.
+    b) Cache friendly
+    c) Average case : O(nlogn)
+    d) tail recursive
+4) partition is key function
+
+It revolves mainly around how you partition your array:
+For stability:
+Naive partition
+
+Unstable but efficient partitioning algorithms:
+Lomuto algorithm
+Hoare algorithm
+
+
+
+Considering Lomuto sort:
+void qSort(arr, l, h){
+    if(l<h){
+        int p = partition(arr, l, h);
+        qSort(arr, l, p-1);
+        qSort(arr, p+1, h);
+    }
+}
+
+For Hoare partition, just change p-1 to p.
+This is done because hoare parition may or may not put the pivot in the right place.
+Since Lomuto sort places the pivot at the right place, we can skip the call to sort it again.

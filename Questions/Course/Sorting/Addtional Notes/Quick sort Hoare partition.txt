@@ -1,0 +1,37 @@
+It is unstable partitioning algorithm which works much better than Lomuto partition.
+Space : O(1)
+Time : O(n)
+1 traversal of input array.
+In Lomuto partition, we consider the last element as the pivot.
+In Hoare partition, we consider the first element as the pivot.
+So all elements less than pivot will move to the left of it, and all the element greater than or equal the pivot(including the pivot itself) will move to the right of it. The pivot itself may or may not be at its correct position. So Lomuto is better in this scenario.
+
+int partition(arr, l, h){
+    int pivot = arr[l];
+    int i = l-1, j=h-1;
+    while(true){
+        do{
+            i++;
+        }while(arr[i]<pivot)    
+        do{
+            j--;
+        }while(arr[j]>pivot)
+        if(i>=j){
+            return j;
+        }
+        swap(arr[i], arr[j]);
+    }
+}
+We will maintain 2 pointers. i will move from l to h and j will move from h to l. We will stop when they meet or i becomes greater than j.
+We consider the array being divided into 3 parts. The part from l to i which contains the elements which are < pivot, the part from j to h which contains elements > pivot and the part i to j which contains elements which are unknown and need to be processed.
+
+Eg. [5, 3, 8, 4, 2, 7, 1, 10]
+Here the pivot is 5
+The value of l = 0 and h = 7
+The value of i = -1 and j is 6
+So first we find the element which is > pivot from left to right. We see that 5 < 5 is false so we will stop at the first element itself. Now we check for j from right to left. We will stop at 1 as it is < pivot. Now we will swap 5 and 1.
+
+In the next pass, we skip 3 as it is < and then we stop at 8 for i. For j we stop at 2.
+Then we swap again, 8 and 2 get swapped.
+In the next pass, i gets increased and we stop at 8. For j we will stop at 4 as it is < 5. Instead of swapping, we check the condition and i>=j so we will and return j = 3
+[1, 3, 2, 4, 8, 7, 5, 10]
