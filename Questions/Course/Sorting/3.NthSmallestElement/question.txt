@@ -1,0 +1,17 @@
+Find the Nth smallest element in an array which may or may not have distinct elements.
+Low <= Mid < High
+I : 10 5 30 12
+    2
+O : 10
+
+
+Solution : 
+Naive way : Sort and then find arr[k]. Time : O(nlogn)
+Optimized way:
+We will use the concept of quick sort and particularly lomuto partition.
+In lomuto partition, we will get the pivot at its correct position. We will check if this index returned is kth index. If yes then we have our answer and we can just return the pivot.
+If not then we compare with the kth element. If our pivot > kth element then we will process only the right side and if < kth element then we will process only the left side. Hence unlike quick sort, we will only recursively process one side instead of both sides.
+O(n^2) worst case.
+So how is it better?
+This solution on average outperforms naive way even if worst case complexity is more.
+Under certain assumptions, this way will work in O(n) time on average. 

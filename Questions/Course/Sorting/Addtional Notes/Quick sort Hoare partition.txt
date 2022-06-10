@@ -27,7 +27,7 @@ We consider the array being divided into 3 parts. The part from l to i which con
 
 Eg. [5, 3, 8, 4, 2, 7, 1, 10]
 Here the pivot is 5
-The value of l = 0 and h = 7
+The value of l = 0 and h =  7
 The value of i = -1 and j is 6
 So first we find the element which is > pivot from left to right. We see that 5 < 5 is false so we will stop at the first element itself. Now we check for j from right to left. We will stop at 1 as it is < pivot. Now we will swap 5 and 1.
 

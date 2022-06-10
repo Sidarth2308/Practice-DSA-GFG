@@ -1,0 +1,14 @@
+You are given an array in which the elements represent the number of chocolates in a packet.
+You have to distribute these chocolates to m children such that:
+1) Each child should get exactly 1 packet. No more and no less
+2) Minimize the difference between the minimum chocolates and the maximum chocolates that any two children get.
+I : 7 3 2 4 9 12 56
+    3
+O : 2
+
+What we mean here is that we need to distribute 3 packets only as each child can get only 1 packet. Now we need to find 3 packets here whose differences are are the least. If we pick eg. 9 12 and 56, we get a difference of 56-9 = 47. If we pick 7, 3, 2 we get a difference of 5.
+If we pick 3,2,4, we get a difference of 2. This is the least difference hence we return this difference.
+
+arr[m-1] - arr[0]
+Solution : 
+Sort the array and then assume that each element can be the smallest start. So then check for window of m-1 elements greater than it and simply do arr[m-1 +i] - arr[i]. Do this for all the elements and the pick the global minima.
