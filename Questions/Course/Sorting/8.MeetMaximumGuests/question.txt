@@ -1,0 +1,33 @@
+You are given 2 arrays of size n. One shows the arrival time of guests and the other tells their departure time.
+You have to return the maximum possible guests you can meet simultaneously. This means that the maximum number of guests that will be available at the same time.
+I : arrival : [900, 940]
+    departure : [1000, 1030]
+O : 2
+Here we can meet both the guests if we go from 9:40 to 10:00.
+
+I : arrival : [800, 700, 600, 500]
+    departure : [840, 820, 830, 530]
+O : 3
+Here the max guests we can meet are 3. We can meet them if we go from 8:00 to 8:20.
+
+I : arrival : [900, 940, 950, 1100, 1500, 1800]
+    departure : [910, 1200, 1120, 1130, 1900, 2000]
+O : 3
+
+Here the max guests we can meet are 3. We can meet them if we go from 11:00 to 11:20
+
+Solution : 
+We will consider all the timelines, starting from first arrival to last departure and at every time we will see the guests available. Whatever is the max is out answer.
+For eg. arrival : [900, 600, 700] and departure : [1000, 800, 730]
+We will sort both the arrays:
+arrival: [600, 700, 900] and departure : [730, 800, 1000]
+After this lets imagine how this helps with the help of a table
+Time    Action  Count
+600     Arr     1
+700     Arr     2
+730     Dep     1
+800     Dep     0
+900     Arr     1
+1000    Arr     0
+In this table, we will just increase our guest count if there is an arrival and decrease if there is a departure. Through this we can see that the max guests that will be available simultaneously is 2.
+After sorting, all we need to do is merge the two arrays according to their times. This is similar to merge function of merge sort.

@@ -1,0 +1,35 @@
+Implement the best for sorting an array which contains 3 different types of elements.
+I : 0 1 0 2 1 2
+O : 0 0 1 1 2 2
+
+
+This question can be extended to any array which needs to be divided into 3 different parts.
+eg. 
+1) partition the array around a pivot such that all less than are together, all equal are together and all greater than pivot are together
+[2 1 2 20 10 20 1] => [1 1 2 2 20 10 20] around pivot = 2
+
+2) partition the array around a range such that all less than are together, all values inside the range are together and all greater than thr range are together
+[10 5 6 3 20 9 40] => [3 5 6 9 10 20 40] around range [5,10]
+
+Solution : 
+We use an algorithm called the Dutch national flag algorithm. This is a modification of Hoare partition.
+In this algorithm, we assume that the array is in 4 parts. 1st part is the elements which are less than our pivot shown by 0 to l. 2nd part is the elements which are equal to our pivot shown by l+1 to m. 3rd part is the unknown part which needs to be processed shown by m+1 to h. 4th part are the elements which are greater than our pivot shown by h+1 to n.
+If your values are less than pivot then swap low and mid and increase both.
+If your values are equal then increase mid.
+else swap mid and high and decrease high.
+
+[0 1 2 1 1 2]
+low = 0 high = 5 mid = 0
+[0 1 2 1 1 2]
+low = 1 high = 5 mid = 1
+[0 1 2 1 1 2]
+low = 1 high = 5 mid = 2
+[0 1 2 1 1 2]
+low = 1 high = 4 mid = 2
+[0 1 1 1 2 2]
+low = 1 high = 3 mid = 2
+[0 1 1 1 2 2]
+low = 1 high = 3 mid = 3 
+[0 1 1 1 2 2]
+low = 1 high = 3 mid = 4
+

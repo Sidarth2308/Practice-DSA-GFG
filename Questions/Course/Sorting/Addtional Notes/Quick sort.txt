@@ -30,3 +30,9 @@ void qSort(arr, l, h){
 For Hoare partition, just change p-1 to p.
 This is done because hoare parition may or may not put the pivot in the right place.
 Since Lomuto sort places the pivot at the right place, we can skip the call to sort it again.
+
+
+Simple lomuto or hoare partition can be used to solve questions which involve 2 types of elements where they ask:
+1) negative on one side and positive on the other
+2) odd on one side and even on the other
+3) sorting a binary array.

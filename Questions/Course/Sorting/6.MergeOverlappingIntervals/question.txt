@@ -1,0 +1,30 @@
+You are given an array which contains intervals of elements. Some of these intervals may overlap with each other. Merge the overlapping intervals.
+I : [[1, 3], [2, 4], [5, 7], [6, 8]]
+O : [[1, 4], [5, 8]]
+
+
+Here the intervals of [1, 3] and [2, 4] are overlapping and can be merged into [1, 4].
+Similarly, [5, 7] and [6, 8] are overlapping. Hence they can be merged into [5, 8]
+
+Solution : 
+Q. How to check if 2 intervals are overlapping or not?
+A. 1st method is to take the larger of the starting values of the two intervals. If this larger value lies between the other interval, then there is overlap.
+eg. [5, 10] and [1, 7]. Here 5 is the larger of the starting values and 5 lies between 1 and 7.Hence there is an overlap.
+2nd method is to take the smaller of the end values of the two intervals. If this smaller value lies in the other interval, then there is an overlap.
+
+Q. How to merge 2 overlapping intervals?
+A. start = min(start of first, start of second)
+end = max(end of first, end of second)
+
+Q. How to solve the original question?
+A. Naive method : O(n^3) Take a pair and traverse through entire array checking if overlap is there. If yes, merge and delete the original pairs.
+So O(n^2) time for traversal and O(n) time for deletion.
+
+Efficient method:
+Sort in increase order of start time.
+lets say after this our intervals are in the form:
+X1, X2, X3, ... , Xi-1, Xi
+These are sorted in increasing order of start time. These can be converted to the form:
+M1, M2, ... , Mj-1, Mj
+These are merged intervals from X1 TO Xi-1. These contain only those intervals which are non-overlapping.
+In this way our Xith interval needs to be compared only with Mjth interval to check for overlap.
