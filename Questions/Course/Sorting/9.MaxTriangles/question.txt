@@ -1,0 +1,15 @@
+Given an unsorted array arr[] of n positive integers. Find the number of triangles that can be formed with three different array elements as lengths of three sides of triangles. 
+I : {3, 5, 4}
+O : 1
+A triangle is possible with all the elements 5, 3 and 4.
+
+I : {6, 4, 9, 7, 8}
+O : 10
+There are 10 triangles possible  with the given elements like (6,4,9), (6,7,8),...
+
+Solution : 
+For a 3 numbers, A,B,C to be possible sides of a triangle, there must be 3 conditions that should be true.
+A + B > C
+A + C > B
+B + C > A
+Here 
