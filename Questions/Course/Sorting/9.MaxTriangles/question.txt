@@ -12,4 +12,7 @@ For a 3 numbers, A,B,C to be possible sides of a triangle, there must be 3 condi
 A + B > C
 A + C > B
 B + C > A
-Here 
+Here we first sort the array.
+Then we fix one of the elements from the end. Then we use the two pointer approach.
+Left is set to 0 and right is set to current element - 1 (i-1). If the sum of left element and the right element is greater than our current element, then we know we sum of all elements from left to right will be greater than our current element(because sorted). Hence count of triangles += right-left.
+If it is < than the current element, then we simply increment the left counter. This is done because decreasing high would lead to a lesser sum.

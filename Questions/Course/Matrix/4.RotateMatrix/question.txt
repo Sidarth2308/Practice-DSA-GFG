@@ -1,0 +1,38 @@
+Given a matrix, rotate it by 90deg anti-clockwise:
+
+I/P : 1  2  3 
+      4  5  6
+      7  8  9
+O/P : 3  6  9
+      2  5  8
+      1  4  7
+
+I/P : 1  2  3  4
+      5  6  7  8
+      9  10 11 12
+      13 14 15 16
+O/P : 4  8  12 16
+      3  7  11 15
+      2  6  10 14
+      1  5  9  13
+
+Solution : 
+The solution makes use of the transpose of the matrix.
+In our original question, we wanted to make the last row as the last column, second last row, as the last column etc.
+We notice that after transpose of the matrix, Last column, becomes the last row. The second last column, becomes the second last row and so on.
+This can be useful as now all we need to do is convert the last row to become the first row, second last row to be the second row etc.
+
+Ex : 1  2  3  4
+     5  6  7  8
+     9  10 11 12
+     13 14 15 16
+After transposing, it becomes:
+     1  5  9  13
+     2  6  10 14
+     3  7  11 15
+     4  8  12 16
+We notice that all we need to do now, is reverse the columns :
+     4  8  12 16
+     3  7  11 15
+     2  6  10 14
+     1  5  9  13

@@ -1,0 +1,36 @@
+1) Matrices in C++ are row-major ordered:
+[[10, 20], [30, 40], [50, 60]]
+In memory, these will be ordered as :
+element : 10      20      30      40      50      60
+location: 2000    2004    2008    2012    2016    2020
+
+2) Internal brackets are optional:
+arr[3][2] = {10, 20, 30, 40, 50, 60}
+
+3) Only the first dimension can be omitted when initializing:
+arr[][2] = {{10, 20}, {30, 40}, {50, 60}} 
+
+
+There are other methods of creating multidimensional arrays in CPP as well:
+1) Double Pointer:
+int **arr;
+arr = new int *[m];
+for(int i=0;i<m;i++){
+    arr[i] = new int[n];
+}
+Here we are creating an array where individual elements point to new arrays. This can contain array of different sizes. Hence we can create a jagged array.
+This is not cache friendly.
+
+2) Array of pointers:
+int *arr[m];
+for (int i=0;i<m;i++){
+    arr[i] = new int[n];
+}
+
+3) Array of vectors:
+    vector<int> arr[m];
+Not as cache friendly but individual arrays are dynamic in nature.
+
+4) Vector of vectors:
+vector<vector<int>> arr;
+Not as cache friendly but individual arrays are dynamic in nature.
